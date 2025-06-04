@@ -47,6 +47,7 @@ public struct ANApplication<Child, Route>: View where Child: View, Route: ANRout
                 }
             }
             .padding(0.0)
+            .animation(config.animation)
             // Define navigation destinations for `Route` types, using the provided `routeBuilder` closure.
             .navigationDestination(for: Route.self, destination: builder)
         }

@@ -40,8 +40,12 @@ public final class AwesomeNavigation: ObservableObject {
     /// Replaces the current route with a new one.
     /// - Parameter route: The new route to be added, conforming to `ANRoute`.
     public func pushReplacement<R>(_ route: R) -> Void where R: ANRoute {
-        self.pop(count: 1)
-        self.push(route)
+        if self.routeStack.count > 0 {
+            self.pop(count: 1)
+            self.push(route)
+        } else {
+            self.updateRoot(with: route)
+        }
     }
     
     /// Pops the topmost route from the navigation stack.

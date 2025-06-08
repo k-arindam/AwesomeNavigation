@@ -42,35 +42,13 @@ Use **Swift Package Manager**:
 
 ### Step 1: Define your routes
 
-```swift
-enum AppRoute: ANRoute {
-    case home
-    case settings
-    case item(id: String)
-}
-```
+![Route](assets/route.png)
+
+---
 
 ### Step 2: Initialize the app with a config
 
-```swift
-@main
-struct AwesomeNavigationExampleApp: App {
-    var body: some Scene {
-        WindowGroup {
-            let config = ANConfig(initialRoute: AppRoute.home) { route in
-                switch route {
-                case .home: HomeView()
-                case .settings: SettingsView()
-                case .item(let id): ItemView(id: id)
-                }
-            }
-
-            ANApplication(with: config)
-                .preferredColorScheme(.dark)
-        }
-    }
-}
-```
+![App](assets/app.png)
 
 ---
 
@@ -80,36 +58,7 @@ You can use the provided navigation methods from any view using `@EnvironmentObj
 
 ### Example: HomeView
 
-```swift
-struct HomeView: View {
-    @EnvironmentObject var nav: AwesomeNavigation
-
-    var body: some View {
-        List {
-            Section("PUSH") {
-                Button("Push Settings View") {
-                    nav.push(AppRoute.settings)
-                }
-
-                Button("Push Item View") {
-                    nav.push(AppRoute.item(id: UUID().uuidString))
-                }
-            }
-
-            Section("POP") {
-                Button("Pop One View") {
-                    nav.pop()
-                }
-
-                Button("Pop to Root") {
-                    nav.popToRoot()
-                }
-            }
-        }
-        .navigationTitle("Home")
-    }
-}
-```
+![Navigate](assets/navigate.png)
 
 ---
 

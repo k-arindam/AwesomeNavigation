@@ -133,3 +133,7 @@ struct AwesomeNavigationExampleApp: App {
     ...
 }
 ```
+
+---
+
+Banner image created by [Canva AI](https://www.canva.com/ai)

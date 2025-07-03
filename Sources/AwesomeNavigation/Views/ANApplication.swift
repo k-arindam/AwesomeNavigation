@@ -42,8 +42,6 @@ public struct ANApplication<Child, Route>: View where Child: View, Route: ANRout
                 // Display the initial route or a fallback view if no initial route is set.
                 if let initialRoute = navigation.initialRoute as? Route {
                     builder(initialRoute)
-                } else {
-                    VStack {}
                 }
             }
             .padding(0.0)

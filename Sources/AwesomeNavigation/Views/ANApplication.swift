@@ -39,11 +39,11 @@ public struct ANApplication<Child, Route>: View where Child: View, Route: ANRout
             let builder = config.routeBuilder
             
             VStack {
-                // Display the initial route or a fallback message if no initial route is set.
+                // Display the initial route or a fallback view if no initial route is set.
                 if let initialRoute = navigation.initialRoute as? Route {
                     builder(initialRoute)
                 } else {
-                    Text("No initial route set!")
+                    VStack {}
                 }
             }
             .padding(0.0)
